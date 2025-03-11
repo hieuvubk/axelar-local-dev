@@ -23,6 +23,7 @@ export const relay = async (relayers?: RelayerMap, externalEvmNetworks?: Network
         const relayer = relayers[relayerType];
 
         if (relayerType === 'evm') {
+            console.log("Relay EVM")
             await relayer?.relay(externalEvmNetworks);
         } else {
             await relayer?.relay();

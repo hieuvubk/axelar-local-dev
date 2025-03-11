@@ -39,7 +39,10 @@ export abstract class Relayer {
 
     async relay(externalNetworks?: Network[]) {
         const actualNetworks = externalNetworks || networks;
+        console.log("externalNetworks", externalNetworks)
+        console.log("networks", networks)
         for (const to of actualNetworks) {
+            console.log("network name", to.name)
             this.commands[to.name] = [];
         }
         this.commands['aptos'] = [];

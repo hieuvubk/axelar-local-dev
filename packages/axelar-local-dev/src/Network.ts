@@ -231,11 +231,19 @@ export class Network {
         const factorySalt = keccak256(defaultAbiCoder.encode(['string'], ['interchain-token-factory-salt']));
         const wallet = this.ownerWallet;
         const interchainTokenServiceAddress = await this.create3Deployer.deployedAddress('0x', wallet.address, deploymentSalt);
+        logger.log(`interchainTokenServiceAddress`, interchainTokenServiceAddress);
+        const count = await this.provider.getTransactionCount(wallet.address)
+        console.log("so may day", count)
         const tokenManagerDeployer = await deployContract(wallet, TokenManagerDeployer);
+        logger.log(`Dit con me mayyyyy 1`);
         const intercahinToken = await deployContract(wallet, InterchainToken, [interchainTokenServiceAddress]);
+        logger.log(`Dit con me mayyyyy 2`);
         const interchainTokenDeployer = await deployContract(wallet, InterchainTokenDeployer, [intercahinToken.address]);
+        logger.log(`Dit con me mayyyyy 3`);
         const tokenManager = await deployContract(wallet, TokenManager, [interchainTokenServiceAddress]);
+        logger.log(`Dit con me mayyyyy 4`);
         const tokenHandler = await deployContract(wallet, TokenHandler, []);
+        logger.log(`Dit con me mayyyyy 5`);
         const interchainTokenFactoryAddress = await this.create3Deployer.deployedAddress('0x', wallet.address, factorySalt);
 
         let implementation = await deployContract(wallet, InterchainTokenServiceContract, [
@@ -247,7 +255,9 @@ export class Network {
             this.name,
             tokenManager.address,
             tokenHandler.address,
-        ]);
+        ], {gasLimit: 5000000});
+        logger.log(`Dit con me mayyyyy 6`);
+        await sleep(2000)
         const factory = new ContractFactory(InterchainProxy.abi, InterchainProxy.bytecode);
         let bytecode = factory.getDeployTransaction(
             implementation.address,
@@ -255,13 +265,19 @@ export class Network {
             defaultAbiCoder.encode(['address', 'string', 'string[]', 'string[]'], [wallet.address, this.name, [], []])
         ).data;
         await this.create3Deployer.connect(wallet).deploy(bytecode, deploymentSalt);
+        logger.log(`Dit con me mayyyyy 7`);
+        await sleep(7000)
         this.interchainTokenService = InterchainTokenServiceFactory.connect(interchainTokenServiceAddress, wallet);
 
-        implementation = await deployContract(wallet, InterchainTokenFactoryContract, [interchainTokenServiceAddress]);
+        implementation = await deployContract(wallet, InterchainTokenFactoryContract, [interchainTokenServiceAddress], {gasLimit: 5000000});
+        logger.log(`Dit con me mayyyyy 8`);
+        await sleep(7000)
 
         bytecode = factory.getDeployTransaction(implementation.address, wallet.address, '0x').data;
 
         await this.create3Deployer.connect(wallet).deploy(bytecode, factorySalt);
+        logger.log(`Dit con me mayyyyy 9`);
+        await sleep(7000)
         this.interchainTokenFactory = InterchainTokenFactoryFactory.connect(interchainTokenFactoryAddress, wallet);
 
         await setupITS(this);
@@ -288,7 +304,7 @@ export class Network {
             )
         );
         const signedData = await getSignedExecuteInput(data, this.operatorWallet);
-        await (await this.gateway.connect(this.ownerWallet).execute(signedData, { gasLimit: BigInt(8e6) })).wait();
+        await (await this.gateway.connect(this.ownerWallet).execute(signedData, { gasLimit: 5000000 })).wait();
         const tokenAddress = await this.gateway.tokenAddresses(symbol);
         const tokenContract = new Contract(tokenAddress, BurnableMintableCappedERC20.abi, this.ownerWallet);
         logger.log(`Deployed at ${tokenContract.address}`);
@@ -318,7 +334,7 @@ export class Network {
         );
 
         const signedData = await getSignedExecuteInput(data, this.operatorWallet);
-        await (await this.gateway.connect(this.ownerWallet).execute(signedData, { gasLimit: BigInt(8e6) })).wait();
+        await (await this.gateway.connect(this.ownerWallet).execute(signedData, { gasLimit: 5000000 })).wait();
     }
 
     getInfo() {
@@ -374,4 +390,8 @@ export class RemoteNetwork extends Network {
             });
         });
     }
+}
+
+function sleep(ms: any) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
