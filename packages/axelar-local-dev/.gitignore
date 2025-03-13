@@ -38,7 +38,7 @@ typings/
 .env.test
 
 # Build
-artifacts
+# artifacts
 
 build
 

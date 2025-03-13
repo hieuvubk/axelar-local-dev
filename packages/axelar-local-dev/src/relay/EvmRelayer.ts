@@ -10,8 +10,8 @@ import { getFee, getGasPrice } from '../networkUtils';
 import {
     ContractCallEventObject,
     ContractCallWithTokenEventObject,
-} from '../types/@axelar-network/axelar-cgp-solidity/contracts/AxelarGateway';
-import { AxelarExpressExecutable__factory as AxelarExpressExecutableFactory } from '../types/factories/@axelar-network/axelar-gmp-sdk-solidity/contracts/express/AxelarExpressExecutable__factory';
+} from '../types/axelar-cgp-solidity/contracts/AxelarGateway';
+import { AxelarExpressExecutableWithToken__factory as AxelarExpressExecutableFactory } from '../types/factories/axelar-gmp-sdk-solidity/contracts/express/AxelarExpressExecutableWithToken__factory';
 
 const AddressZero = ethers.constants.AddressZero;
 

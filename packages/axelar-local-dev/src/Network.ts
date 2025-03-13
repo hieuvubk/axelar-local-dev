@@ -21,16 +21,16 @@ import {
     InterchainTokenFactory as InterchainTokenFactoryContract,
     InterchainProxy,
 } from './contracts';
-import { AxelarGateway__factory as AxelarGatewayFactory } from './types/factories/@axelar-network/axelar-cgp-solidity/contracts/AxelarGateway__factory';
-import { AxelarGateway } from './types/@axelar-network/axelar-cgp-solidity/contracts/AxelarGateway';
-import { InterchainTokenService, InterchainTokenFactory } from './types/@axelar-network/interchain-token-service/contracts';
-import { AxelarGasService__factory as AxelarGasServiceFactory } from './types/factories/@axelar-network/axelar-cgp-solidity/contracts/gas-service/AxelarGasService__factory';
+import { AxelarGateway__factory as AxelarGatewayFactory } from './types/factories/axelar-cgp-solidity/contracts/AxelarGateway__factory';
+import { AxelarGateway } from './types/axelar-cgp-solidity/contracts/AxelarGateway';
+import { InterchainTokenService, InterchainTokenFactory } from './types/interchain-token-service/contracts';
+import { AxelarGasService__factory as AxelarGasServiceFactory } from './types/factories/axelar-cgp-solidity/contracts/gas-service/AxelarGasService__factory';
 import {
     InterchainTokenService__factory as InterchainTokenServiceFactory,
     InterchainTokenFactory__factory as InterchainTokenFactoryFactory,
-} from './types/factories/@axelar-network/interchain-token-service/contracts';
-import { AxelarGasService } from './types/@axelar-network/axelar-cgp-solidity/contracts/gas-service/AxelarGasService';
-import { ITS, setupITS } from './its';
+} from './types/factories/interchain-token-service/contracts';
+import { AxelarGasService } from './types/axelar-cgp-solidity/contracts/gas-service/AxelarGasService';
+import { ITS } from './its';
 
 const ADDRESS_ZERO = '0x0000000000000000000000000000000000000000';
 const { defaultAbiCoder, arrayify, keccak256, toUtf8Bytes } = ethers.utils;
@@ -280,7 +280,7 @@ export class Network {
         await sleep(7000)
         this.interchainTokenFactory = InterchainTokenFactoryFactory.connect(interchainTokenFactoryAddress, wallet);
 
-        await setupITS(this);
+        // await setupITS(this);
         logger.log(`Deployed at ${this.interchainTokenService.address}.`);
         return this.interchainTokenService;
     }

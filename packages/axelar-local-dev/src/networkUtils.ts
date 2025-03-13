@@ -7,15 +7,15 @@ import { ethers, Wallet, Contract, providers, getDefaultProvider } from 'ethers'
 import { merge } from 'lodash';
 import { defaultAccounts, setJSON, httpGet, logger } from './utils';
 import { Network, networks, NetworkOptions, NetworkInfo, NetworkSetup } from './Network';
-import { AxelarGateway__factory as AxelarGatewayFactory } from './types/factories/@axelar-network/axelar-cgp-solidity/contracts/AxelarGateway__factory';
-import { AxelarGasService__factory as AxelarGasServiceFactory } from './types/factories/@axelar-network/axelar-cgp-solidity/contracts/gas-service/AxelarGasService__factory';
+import { AxelarGateway__factory as AxelarGatewayFactory } from './types/factories/axelar-cgp-solidity/contracts/AxelarGateway__factory';
+import { AxelarGasService__factory as AxelarGasServiceFactory } from './types/factories/axelar-cgp-solidity/contracts/gas-service/AxelarGasService__factory';
 import { Server } from 'http';
 import { ConstAddressDeployer, Create3Deployer, IInterchainTokenService } from './contracts';
 import {
     InterchainTokenService__factory as InterchainTokenServiceFactory,
     InterchainTokenFactory__factory as InterchainTokenFactoryFactory,
-} from './types/factories/@axelar-network/interchain-token-service/contracts';
-import { setupITS } from './its';
+} from './types/factories/interchain-token-service/contracts';
+// import { setupITS } from './its';
 
 const { keccak256, id, solidityPack, toUtf8Bytes } = ethers.utils;
 
@@ -160,7 +160,7 @@ export async function getNetwork(urlOrProvider: string | providers.Provider, inf
     chain.gasService = AxelarGasServiceFactory.connect(info.gasReceiverAddress, chain.provider);
     chain.interchainTokenService = InterchainTokenServiceFactory.connect(info.InterchainTokenService, chain.provider);
     chain.interchainTokenFactory = InterchainTokenFactoryFactory.connect(info.InterchainTokenFactory, chain.provider);
-    await setupITS(chain);
+    // await setupITS(chain);
 
     logger.log(`Its gateway is deployed at ${chain.gateway.address}.`);
 
