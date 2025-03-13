@@ -1,0 +1,76 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "TestRpcCompatibility",
+  "sourceName": "contracts/test/TestRpcCompatibility.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ValueUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "ValueUpdatedForSubscribe",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "getValue",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateValue",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateValueForSubscribe",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50610127806100206000396000f3fe6080604052348015600f57600080fd5b5060043610603c5760003560e01c80632096525514604157806326a6ae51146056578063573c0bd3146067575b600080fd5b60005460405190815260200160405180910390f35b6065606136600460d9565b6076565b005b6065607236600460d9565b60a9565b600181905560405181907f468963a1d9dd9327ac085bcd5fa80a5a43a35360584c14d49aa7d24d33acc40390600090a250565b600081815560405182917f4273d0736f60e0dedfe745e86718093d8ec8646ebd2a60cd60643eeced56581191a250565b60006020828403121560ea57600080fd5b503591905056fea264697066735822122024d570a1767a64465593dc26c7e46c8bf24b4957d65ec4348ed23a35a589107164736f6c63430008090033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b5060043610603c5760003560e01c80632096525514604157806326a6ae51146056578063573c0bd3146067575b600080fd5b60005460405190815260200160405180910390f35b6065606136600460d9565b6076565b005b6065607236600460d9565b60a9565b600181905560405181907f468963a1d9dd9327ac085bcd5fa80a5a43a35360584c14d49aa7d24d33acc40390600090a250565b600081815560405182917f4273d0736f60e0dedfe745e86718093d8ec8646ebd2a60cd60643eeced56581191a250565b60006020828403121560ea57600080fd5b503591905056fea264697066735822122024d570a1767a64465593dc26c7e46c8bf24b4957d65ec4348ed23a35a589107164736f6c63430008090033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

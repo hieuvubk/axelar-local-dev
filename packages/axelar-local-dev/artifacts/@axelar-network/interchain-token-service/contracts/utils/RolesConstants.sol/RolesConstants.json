@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "RolesConstants",
+  "sourceName": "@axelar-network/interchain-token-service/contracts/utils/RolesConstants.sol",
+  "abi": [],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212207390a40f86e46a136e77b38dac1c36827e177336c14a8ca0af0c6d158e97007e64736f6c63430008090033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212207390a40f86e46a136e77b38dac1c36827e177336c14a8ca0af0c6d158e97007e64736f6c63430008090033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

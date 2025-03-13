@@ -1,0 +1,26 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Create3Fixed",
+  "sourceName": "@axelar-network/interchain-token-service/contracts/utils/Create3Fixed.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "AlreadyDeployed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "DeployFailed",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "EmptyBytecode",
+      "type": "error"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220fdcb6e90d7443196b4fb2f74fe12f3ce7c34d61b80ae3732b3e506c16b49722f64736f6c63430008090033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220fdcb6e90d7443196b4fb2f74fe12f3ce7c34d61b80ae3732b3e506c16b49722f64736f6c63430008090033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

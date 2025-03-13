@@ -1,0 +1,30 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ITokenManagerImplementation",
+  "sourceName": "@axelar-network/interchain-token-service/contracts/interfaces/ITokenManagerImplementation.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenManagerType",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenManagerImplementation",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "tokenManagerAddress_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

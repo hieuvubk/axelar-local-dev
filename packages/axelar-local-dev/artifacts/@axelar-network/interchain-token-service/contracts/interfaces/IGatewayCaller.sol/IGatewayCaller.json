@@ -1,0 +1,55 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IGatewayCaller",
+  "sourceName": "@axelar-network/interchain-token-service/contracts/interfaces/IGatewayCaller.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "metadataVersion",
+          "type": "uint32"
+        }
+      ],
+      "name": "InvalidMetadataVersion",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "destinationChain",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "destinationAddress",
+          "type": "string"
+        },
+        {
+          "internalType": "bytes",
+          "name": "payload",
+          "type": "bytes"
+        },
+        {
+          "internalType": "enum IGatewayCaller.MetadataVersion",
+          "name": "metadataVersion",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "gasValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "callContract",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
